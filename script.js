@@ -31,6 +31,7 @@ function getSymbol() {
 
 function promptUser() {
   // variables to store window prompt answers
+  var passwordLength = window.prompt("Pick a password length between 8 and 128 characters")
   var wantsLowerCase = window.prompt("Do you want to inclue lowercase letters in your password?");
   var wantsUpperCase = window.prompt("Do you want to inclue uppercase letters in your password?");
   var wantsNumbers = window.prompt("Do you want to inclue numbers in your password?");

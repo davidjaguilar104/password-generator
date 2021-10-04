@@ -34,13 +34,38 @@ function promptUser() {
   var passwordLength = window.prompt("Pick a password length between 8 and 128 characters. Please enter a number between 8 and 128.")
   if(passwordLength > 128 || passwordLength < 8) {
     window.alert("You did not enter a number between 8 and 128. Please try again."); 
+    return promptUser(); 
   }
 
 
-  var wantsLowerCase = window.confirm("Do you want to include lowercase letters in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
-  var wantsUpperCase = window.confirm("Do you want to include uppercase letters in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
-  var wantsNumbers = window.confirm("Do you want to include numbers in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
-  var wantsSymbols = window.confirm("Do you want to include special characters in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
+  var confirmLowerCase = window.confirm("Do you want to include lowercase letters in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
+  if(confirmLowerCase) {
+    console.log("wants lower case");
+  } else {
+    console.log("does not want lower case");
+  }
+
+
+  var confirmUpperCase = window.confirm("Do you want to include uppercase letters in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
+  if(confirmUpperCase) {
+    console.log("wants upper case");
+  } else {
+    console.log("does not want upper case");
+  }
+
+  var confirmNumbers = window.confirm("Do you want to include numbers in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
+  if(confirmNumbers) {
+    console.log("wants numbers");
+  } else {
+    console.log("does not want numbers");
+  }
+
+  var confirmSymbols = window.confirm("Do you want to include special characters in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
+  if(confirmSymbols) {
+    console.log("wants symbols");
+  } else {
+    console.log("does not want symbols");
+  }
 }
 
 

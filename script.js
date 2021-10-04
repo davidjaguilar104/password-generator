@@ -3,11 +3,11 @@
 
 
 
-const charFunctions = {
+const characterFunctions = {
   lower: getLowerCase(),
   upper: getUpperCase(),
   number: getNumber(),
-  symbol: getSymbol()
+  symbol: getSpecial()
 }
 
 function getLowerCase() {
@@ -22,7 +22,7 @@ function getNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 
-function getSymbol() {
+function getSpecial() {
   const symbols = '!@#$%^&*()_+';
   return symbols[Math.floor(Math.random() * symbols.length)];
 }
@@ -31,16 +31,22 @@ function getSymbol() {
 
 function promptUser() {
   // variables to store window prompt answers
-  var passwordLength = window.prompt("Pick a password length between 8 and 128 characters")
-  var wantsLowerCase = window.prompt("Do you want to inclue lowercase letters in your password?");
-  var wantsUpperCase = window.prompt("Do you want to inclue uppercase letters in your password?");
-  var wantsNumbers = window.prompt("Do you want to inclue numbers in your password?");
-  var wantsSymbols = window.prompt("Do you want to inclue symbols in your password?");
+  var passwordLength = window.prompt("Pick a password length between 8 and 128 characters. Please enter a number between 8 and 128.")
+  if(passwordLength > 128 || passwordLength < 8) {
+    window.alert("You did not enter a number between 8 and 128. Please try again."); 
+  }
+
+
+  var wantsLowerCase = window.confirm("Do you want to include lowercase letters in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
+  var wantsUpperCase = window.confirm("Do you want to include uppercase letters in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
+  var wantsNumbers = window.confirm("Do you want to include numbers in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
+  var wantsSymbols = window.confirm("Do you want to include special characters in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
 }
 
 
 function generatePassword() {
   console.log("this is a placeholder to avoid console errors"); 
+  
 }
 
 

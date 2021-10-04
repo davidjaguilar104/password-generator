@@ -40,6 +40,7 @@ function promptUser() {
 
   var confirmLowerCase = window.confirm("Do you want to include lowercase letters in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
   if(confirmLowerCase) {
+    getLowerCase();
     console.log("wants lower case");
   } else {
     console.log("does not want lower case");
@@ -70,8 +71,7 @@ function promptUser() {
 
 
 function generatePassword() {
-  console.log("this is a placeholder to avoid console errors"); 
-  
+  promptUser();
 }
 
 

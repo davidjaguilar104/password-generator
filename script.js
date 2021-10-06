@@ -25,6 +25,7 @@ function getSpecial() {
 function promptUser() {
   // variable to store window prompt answer
   var passwordLength = window.prompt("Pick a password length between 8 and 128 characters. Please enter a number between 8 and 128.")
+  console.log("password will be " + passwordLength + " characters long");
 
   if(passwordLength > 128 || passwordLength < 8) {
     window.alert("You did not enter a number between 8 and 128. Please try again."); 
@@ -70,7 +71,7 @@ function promptUser() {
 
 
 function generatePassword() {
-  
+  return "abcdefg";
 }
 
 

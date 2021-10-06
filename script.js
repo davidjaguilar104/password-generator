@@ -2,14 +2,7 @@
 
 
 
-
-const characterFunctions = {
-  lower: getLowerCase(),
-  upper: getUpperCase(),
-  number: getNumber(),
-  symbol: getSpecial()
-}
-
+// functions to get characters
 function getLowerCase() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }

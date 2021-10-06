@@ -71,7 +71,7 @@ function promptUser() {
 
 
 function generatePassword() {
-  
+  return 'a23jujf0cj2w3-q!@#';
 }
 
 

@@ -71,7 +71,7 @@ function promptUser() {
 
 
 function generatePassword() {
-  return "abcdefg";
+  
 }
 
 

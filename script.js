@@ -104,7 +104,11 @@ function generatePassword(promptResponse) {
       // password += getUpperCase()
       // password += getNumber()
       // password += getSpecial()
-    } 
+    }
+
+    if(upper === true) {
+      password += getUpperCase()
+    }
   }
 
 

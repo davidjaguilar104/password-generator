@@ -2,7 +2,8 @@
 
 
 
-// functions to get characters
+
+// functions to get characters aka helpers 
 function getLowerCase() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
@@ -24,7 +25,7 @@ function getSpecial() {
 // function with all the prompts for the password criteria
 function promptUser() {
   // variable to store window prompt answer
-  var passwordLength = window.prompt("Pick a password length between 8 and 128 characters. Please enter a number between 8 and 128.")
+   var passwordLength = window.prompt("Pick a password length between 8 and 128 characters. Please enter a number between 8 and 128.")
   console.log("password will be " + passwordLength + " characters long");
 
   if(passwordLength > 128 || passwordLength < 8) {
@@ -67,11 +68,43 @@ function promptUser() {
   } else {
     console.log("does not want symbols");
   }
+
+  return {
+    // not giving key value pair 
+    passwordLength,
+    confirmLowerCase,
+    confirmUpperCase,
+    confirmNumbers,
+    confirmSymbols
+  }
 }
 
 
-function generatePassword() {
-  return 'a23jujf0cj2w3-q!@#';
+function generatePassword(promptResponse) {
+  var password = "";
+  // research: destructuring objects js
+  var length = promptResponse.passwordLength;
+  var lower = promptResponse.confirmLowerCase;
+  var upper = promptResponse.confirmUpperCase;
+  var number = promptResponse.confirmNumbers;
+  var symbols = promptResponse.confirmSymbols;
+
+
+
+  // creating random password 
+
+
+  // logic 
+ 
+  for(var i = 0; i < length; i++) {
+
+  }
+
+
+  
+
+
+  return password;
 }
 
 
@@ -86,8 +119,8 @@ var generateBtn = document.querySelector("#generate");
 // Write password to the #password input
 function writePassword() {
 
-  promptUser(); 
-  var password = generatePassword();
+  var promptResponse = promptUser(); 
+  var password = generatePassword(promptResponse);
   var passwordText = document.querySelector("#password");
 
   passwordText.value = password;

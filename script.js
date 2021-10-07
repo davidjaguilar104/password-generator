@@ -99,7 +99,12 @@ function generatePassword(promptResponse) {
   // logic 
  
   for(var i = 0; i < length; i++) {
-    password += getLowerCase();
+    if(lower  === true) {
+      password += getLowerCase() 
+      // password += getUpperCase()
+      // password += getNumber()
+      // password += getSpecial()
+    } 
   }
 
 

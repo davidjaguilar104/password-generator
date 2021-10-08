@@ -47,6 +47,78 @@ function generatePassword() {
     confirmNumber = confirm("Do you want to include numbers? Click 'ok' for yes and 'cancel' for no.");
     confirmSpecial = confirm("Do you want to include special characters? Click 'ok' for yes and 'cancel' for no.");
   };
+
+  // conditional checking for user selecting cancel on all prompts
+  if(!confirmUpperCase && !confirmLowerCase && !confirmNumber && !confirmSpecial) {
+    userChoice = alert("You must select at least one character type!");
+  }
+
+  // conditional checking if user selects all four character types
+  else if(confirmUpperCase && confirmLowerCase && confirmNumber && confirmSpecial) {
+    userChoice = getSpecial.concat(getLowerCase, getNumber, getUpperCase);
+  }
+
+  // conditional checking if user selected three character types
+  else if (confirmSpecial && confirmNumber && confirmUpperCase) {
+    userChoice = getSpecial.concat(getNumber, getUpperCase);
+  }
+  else if (confirmSpecial && confirmNumber && confirmLowerCase) {
+      userChoice = getSpecial.concat(getNumber, getLowerCase);
+  }
+  else if (confirmSpecial && confirmLowerCase && confirmUpperCase) {
+      userChoice = getSpecial.concat(getLowerCase, getUpperCase);
+  }
+  else if (confirmNumber && confirmLowerCase && confirmUpperCase) {
+      userChoice = getNumber.concat(getLowerCase, getUpperCase);
+  }
+
+  // conditional checking if user selected two character types 
+  else if (confirmSpecial && confirmNumber) {
+      userChoice = getSpecial.concat(getNumber);
+
+  } else if (confirmSpecial && confirmLowerCase) {
+      userChoice = getSpecial.concat(getLowerCase);
+
+  } else if (confirmSpecial && confirmUpperCase) {
+      userChoice = getSpecial.concat(getUpperCase);
+  }
+  else if (confirmLowerCase && confirmNumber) {
+      userChoice = getLowerCase.concat(getNumber);
+
+  } else if (confirmLowerCase && confirmUpperCase) {
+      userChoice = getLowerCase.concat(getUpperCase);
+
+  } else if (confirmNumber && confirmUpperCase) {
+      userChoice = getNumber.concat(getUpperCase);
+  }
+
+  // conditional checking if the user only picked one character type
+  else if (confirmSpecial) {
+      userChoice = getSpecial;
+  }
+  else if (confirmNumber) {
+      userChoice = getNumber;
+  }
+  else if (confirmLowerCase) {
+      userChoice = getLowerCase;
+  }
+  // Created space variable to fill uppercase conversion
+  else if (confirmUpperCase) {
+      userChoice = converter.concat(getUpperCase);
+  };
+
+
+  var password = [];
+
+  for(var i = 0; i < passwordLength; i++) {
+    var criteriaSelected = userChoice[Math.floor(Math.random() * userChoice.passwordLength)];
+    password.push(criteriaSelected);
+  }
+
+  var thePassword = password.join("");
+  writePassword(thePassword);
+  return thePassword;
+
 }
 
 

@@ -35,9 +35,18 @@ function generatePassword() {
   passwordLength = parseInt(prompt("How many characters do you want your password to include? Please pick a number between 8 and 128."));
   if(!passwordLength) {
     alert("You did not choose a valid option. Please enter a number between 8 and 128.");
-  } else if(passwordLength < 8 || passwordLength > 128) {
+    return generatePassword();
+  } 
+  else if(passwordLength < 8 || passwordLength > 128) {
     passwordLength = parseInt(prompt("You must choose a number between 8 and 128!"));
+    return generatePassword();
   }
+  else {
+    confirmUpperCase = confirm("Do you want to include uppercase letters? Click 'ok' for yes and 'cancel' for no.");
+    confirmLowerCase = confirm("Do you want to include lowercase letters? Click 'ok' for yes and 'cancel' for no.");
+    confirmNumber = confirm("Do you want to include numbers? Click 'ok' for yes and 'cancel' for no.");
+    confirmSpecial = confirm("Do you want to include special characters? Click 'ok' for yes and 'cancel' for no.");
+  };
 }
 
 

@@ -29,8 +29,8 @@ var getUpperCase = getLowerCase.map(toUpper);
 var generateBtnEl = document.querySelector("#generate");
 
 generateBtnEl.addEventListener("click", function() {
-  ps = generatePassword();
-  document.getElementById("password").placeholer = ps;
+  makePassword = generatePassword();
+  document.getElementById("password").placeholer = makePassword;
 })
 
 var allChoices = Math.floor(Math.random(getLowerCase.concat(getUpperCase).concat(getNumber).concat(getSpecial)));
@@ -123,15 +123,15 @@ function generatePassword() {
     password.push(criteriaSelected);
   }
 
-  var ps = password.join("");
-  userInput(ps);
-  return ps;
+  var makePassword = password.join("");
+  writePassword(makePassword);
+  return makePassword;
 
 }
 
 
-function userInput(ps) {
-  document.getElementById("password").textContent = ps;
+function writePassword(makePassword) {
+  document.getElementById("password").textContent = makePassword;
 }
 
 

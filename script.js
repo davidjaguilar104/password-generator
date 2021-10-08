@@ -1,5 +1,11 @@
 // Assignment code here
 
+var passwordLength;
+var confirmLowerCase;
+var confirmUpperCase;
+var confirmNumbers;
+var confirmSpecial; 
+
 
 
 
@@ -12,6 +18,7 @@ let getNumber = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 let getSpecial = ['!', '@', '#', '$', '%', '^'];
 
+var userChoice;
 
 // function with all the prompts for the password criteria
 function promptUser() {
@@ -45,10 +52,11 @@ function promptUser() {
   } 
 
   // variable to store window prompt answer
-  var confirmSymbols = window.confirm("Do you want to include special characters in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
+  var confirmSpecial = window.confirm("Do you want to include special characters in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
 
-  if(confirmSymbols === false && confirmNumbers === false && confirmLowerCase === false && confirmUpperCase === false) {
+  if(confirmSpecial === false && confirmNumbers === false && confirmLowerCase === false && confirmUpperCase === false) {
     alert("You need to choice at least one character choice.");
+    return promptUser();
   } 
 
   return {
@@ -62,7 +70,7 @@ function promptUser() {
 }
 
 // function getRandom 
-Math.floor(Math.random() * arr.length)
+// Math.floor(Math.random() * arr.length)
 
 function generatePassword(promptResponse) {
   var password = "";
@@ -72,7 +80,7 @@ function generatePassword(promptResponse) {
   var upper = promptResponse.confirmUpperCase;
   var number = promptResponse.confirmNumbers;
   var symbols = promptResponse.confirmSymbols;
-  console.log(promptResponse); 
+  console.log('here'); 
 
   // pool of functions
   

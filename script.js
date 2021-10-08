@@ -4,22 +4,13 @@
 
 
 // functions to get characters aka helpers 
-function getLowerCase() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-}
+let getLowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
 
-function getUpperCase() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
-}
+let getUpperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 
-function getNumber() {
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
-}
+let getNumber = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-function getSpecial() {
-  const symbols = '!@#$%^&*()_+';
-  return symbols[Math.floor(Math.random() * symbols.length)];
-}
+let getSpecial = ['!', '@', '#', '$', '%', '^'];
 
 
 // function with all the prompts for the password criteria
@@ -38,8 +29,6 @@ function promptUser() {
 
   if(confirmLowerCase) {
     console.log("wants lower case");
-  } else {
-    console.log("does not want lower case");
   }
 
   // variable to store window prompt answer
@@ -47,27 +36,20 @@ function promptUser() {
 
   if(confirmUpperCase) {
     console.log("wants upper case");
-  } else {
-    console.log("does not want upper case");
-  }
-
+  } 
   // variable to store window prompt answer
   var confirmNumbers = window.confirm("Do you want to include numbers in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
 
   if(confirmNumbers) {
     console.log("wants numbers");
-  } else {
-    console.log("does not want numbers");
-  }
+  } 
 
   // variable to store window prompt answer
   var confirmSymbols = window.confirm("Do you want to include special characters in your password? Please click 'ok' for yes or click 'cancel' for 'no'.");
 
-  if(confirmSymbols) {
-    console.log("wants symbols");
-  } else {
-    console.log("does not want symbols");
-  }
+  if(confirmSymbols === false && confirmNumbers === false && confirmLowerCase === false && confirmUpperCase === false) {
+    alert("You need to choice at least one character choice.");
+  } 
 
   return {
     // not giving key value pair 
@@ -79,6 +61,8 @@ function promptUser() {
   }
 }
 
+// function getRandom 
+Math.floor(Math.random() * arr.length)
 
 function generatePassword(promptResponse) {
   var password = "";
@@ -88,7 +72,7 @@ function generatePassword(promptResponse) {
   var upper = promptResponse.confirmUpperCase;
   var number = promptResponse.confirmNumbers;
   var symbols = promptResponse.confirmSymbols;
-
+  console.log(promptResponse); 
 
   // pool of functions
   
@@ -99,16 +83,7 @@ function generatePassword(promptResponse) {
   // logic 
  
   for(var i = 0; i < length; i++) {
-    if(lower  === true) {
-      password += getLowerCase() 
-      // password += getUpperCase()
-      // password += getNumber()
-      // password += getSpecial()
-    }
 
-    if(upper === true) {
-      password += getUpperCase()
-    }
   }
 
 

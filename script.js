@@ -13,7 +13,7 @@ let getLowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 
 
 let getNumber = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-let getSpecial = ['!', '@', '#', '$', '%', '^'];
+let getSpecial = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", "\:", "\;", " < ", "=", " > ", " ? ", "@", "[", "\\", "]", " ^ ", "_", "`", "{", "|", "}", "~"];
 
 var converter = [];
 
@@ -25,6 +25,13 @@ var toUpper = function(lower) {
 
 var getUpperCase = getLowerCase.map(toUpper);
 
+
+var generateBtnEl = document.querySelector("#generate");
+
+generateBtnEl.addEventListener("click", function() {
+  ps = generatePassword();
+  document.getElementById("password").placeholer = ps;
+})
 
 var allChoices = Math.floor(Math.random(getLowerCase.concat(getUpperCase).concat(getNumber).concat(getSpecial)));
 
@@ -51,6 +58,7 @@ function generatePassword() {
   // conditional checking for user selecting cancel on all prompts
   if(!confirmUpperCase && !confirmLowerCase && !confirmNumber && !confirmSpecial) {
     userChoice = alert("You must select at least one character type!");
+    return generatePassword(); 
   }
 
   // conditional checking if user selects all four character types
@@ -111,38 +119,21 @@ function generatePassword() {
   var password = [];
 
   for(var i = 0; i < passwordLength; i++) {
-    var criteriaSelected = userChoice[Math.floor(Math.random() * userChoice.passwordLength)];
+    var criteriaSelected = userChoice[Math.floor(Math.random() * userChoice.length)];
     password.push(criteriaSelected);
   }
 
-  var thePassword = password.join("");
-  writePassword(thePassword);
-  return thePassword;
+  var ps = password.join("");
+  userInput(ps);
+  return ps;
 
 }
 
 
-
-
-
-
-
-// Get references to the #generate element
-var generateBtn = document.querySelector("#generate");
-
-// Write password to the #password input
-function writePassword() {
-
-  
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
+function userInput(ps) {
+  document.getElementById("password").textContent = ps;
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
 
 
 
